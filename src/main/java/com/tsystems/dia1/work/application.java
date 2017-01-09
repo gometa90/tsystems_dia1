@@ -19,47 +19,35 @@ public class application {
 	switch (args[0]) {
 
 	case "ciudad":
-	    cityfile = new File(systemClassLoader.getResource("city.csv").getFile());
+	    cityfile = ResourceUtils.getResourceByName("city.csv");
 	    break;
 
 	case "pais":
-	    cityfile = new File(systemClassLoader.getResource("country.csv").getFile());
+	    cityfile = ResourceUtils.getResourceByName("country.csv");
 	    break;
 
 	case "lengua":
-	    cityfile = new File(systemClassLoader.getResource("countrylanguage.csv").getFile());
+	    cityfile = ResourceUtils.getResourceByName("countrylanguage.csv");
 	    break;
 
 	default:
 	    throw new IllegalArgumentException("Al menos debe introducir un argumento");
 	}
 
-	final CSVReader reader = new CSVReader(new FileReader(cityfile), ';');
-	String[] nextLine;
+	try {
+	    final CSVReader reader = new CSVReader(new FileReader(cityfile), ';');
+	    String[] nextLine;
 
-	while ((nextLine = reader.readNext()) != null) {
-	    // nextLine[] is an array of values from the line
-	    System.out.println(nextLine[0] + " " + nextLine[1] + " etc...");
+	    while ((nextLine = reader.readNext()) != null) {
+		// nextLine[] is an array of values from the line
+		System.out.println(nextLine[0] + " " + nextLine[1] + " etc...");
+	    }
+
+	} catch (Exception e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
 	}
-	// try {
-	//
-	// final ClassLoader systemClassLoader =
-	// ClassLoader.getSystemClassLoader();
-	// final File cityfile = new
-	// File(systemClassLoader.getResource("city.csv").getFile());
-	//
-	// final CSVReader reader = new CSVReader(new FileReader(cityfile),
-	// ';');
-	// String[] nextLine;
-	//
-	// while ((nextLine = reader.readNext()) != null) {
-	// // nextLine[] is an array of values from the line
-	// System.out.println(nextLine[0] + " " + nextLine[1] + " etc...");
-	// }
-	// } catch (Exception e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// }
 
     }
+
 }
