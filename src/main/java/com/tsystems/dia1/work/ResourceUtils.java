@@ -1,3 +1,4 @@
+package com.tsystems.dia1.work;
 import java.io.File;
 
 public class ResourceUtils {
