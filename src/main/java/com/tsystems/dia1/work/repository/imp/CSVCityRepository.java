@@ -1,4 +1,4 @@
-package imp;
+package com.tsystems.dia1.work.repository.imp;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,45 +7,46 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import Repository.CityRepository;
+import com.tsystems.dia1.work.converter.CityMapper;
+import com.tsystems.dia1.work.domain.CityEntity;
+import com.tsystems.dia1.work.repository.CityRepository;
+
 import au.com.bytecode.opencsv.CSVReader;
 
 public class CSVCityRepository implements CityRepository {
 
     private static final char COLUMN_DELIMITER_CHAR = ';';
     private static final String CITY_FILE_NAME = "city.csv";
+    private final CityMapper mapper = new CityMapper();
 
     @Override
-    public List<String[]> findByNameStartWith(String startWith) throws IOException, FileSystemNotFoundException {
-	List<String[]> linesToReturn = new ArrayList<>();
+    public List<CityEntity> findByNameStartWith(String startWith) throws IOException, FileSystemNotFoundException {
+
+	List<CityEntity> cityToReturn = new ArrayList<>();
 
 	final CSVReader reader = new CSVReader(new FileReader(CITY_FILE_NAME), COLUMN_DELIMITER_CHAR);
 
 	String[] nextLine;
 	while ((nextLine = reader.readNext()) != null) {
-	    // nextLine[] is an array of values from the line
 	    if (nextLine[1].startsWith(startWith)) {
-		linesToReturn.add(nextLine);
+		cityToReturn.add(mapper.toCity(nextLine));
 	    }
 	}
 
-	return linesToReturn;
+	return cityToReturn;
     }
 
     @Override
-    public Optional<String[]> findById(String id) throws IOException {
-	// TODO Auto-generated method stub
+    public Optional<CityEntity> findById(String id) throws IOException {
+
 	final CSVReader reader = new CSVReader(new FileReader(CITY_FILE_NAME), COLUMN_DELIMITER_CHAR);
 	String[] nextLine;
 
 	while ((nextLine = reader.readNext()) != null) {
-	    // nextLine[] is an array of values from the line
 	    if (nextLine[0].equals(id)) {
-		return Optional.of(nextLine);
+		return Optional.of(mapper.toCity(nextLine));
 	    }
 	}
 	return Optional.empty();
-
     }
-
 }

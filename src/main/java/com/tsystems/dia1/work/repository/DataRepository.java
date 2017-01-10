@@ -1,4 +1,4 @@
-package Repository;
+package com.tsystems.dia1.work.repository;
 
 import java.io.File;
 import java.io.IOException;

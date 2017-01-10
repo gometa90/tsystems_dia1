@@ -1,4 +1,4 @@
-package UserInterface;
+package com.tsystems.dia1.work.userinterface;
 
 import java.util.Arrays;
 
