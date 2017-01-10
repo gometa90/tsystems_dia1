@@ -1,17 +1,16 @@
 package Repository;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileSystemNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
-public interface DataRepository {
+public interface CountryRepository {
 
     // acceso a datos e impresión de datos por pantalla//
     // Refactoring, en data repository solo quiero obtener los datos
-    List<String[]> findByNameStartWith(File filename, String startWith) throws IOException, FileSystemNotFoundException;
+    List<String[]> findByNameStartWith(String startWith) throws IOException, FileSystemNotFoundException;
 
-    Optional<String[]> findById(File filename, String id) throws IOException;
+    Optional<String[]> findByCode(String code) throws IOException;
 
 }

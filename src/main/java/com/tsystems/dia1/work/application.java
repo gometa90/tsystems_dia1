@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import Repository.CSVDataRepository;
 import Repository.DataRepository;
 import UserInterface.ControllerUserInterface;
 import au.com.bytecode.opencsv.CSVReader;
@@ -19,7 +20,8 @@ public class application {
 
     public static void main(final String args[]) throws IOException {
 
-	final ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
+	DataRepository dataRepository = new CSVDataRepository();
+
 	File cityfile = null;
 	if (args.length < 1) {
 	    throw new IllegalArgumentException("Al menos debe introducir un argumento");
@@ -45,7 +47,7 @@ public class application {
 
 	switch (args[1]) {
 	case "id":
-	    Optional<String[]> optionalLine = DataRepository.findById(cityfile, args[2]);
+	    Optional<String[]> optionalLine = dataRepository.findById(cityfile, args[2]);
 	    // Programación en lambda, que es solo codificación comprimida
 	    // line.ifPresent(value ->
 	    // ControllerUserInterface.printLine(value));
@@ -56,7 +58,7 @@ public class application {
 	    break;
 
 	case "name":
-	    List<String[]> lines = DataRepository.findByNameStartWith(cityfile, args[2]);
+	    List<String[]> lines = dataRepository.findByNameStartWith(cityfile, args[2]);
 	    for (String[] line : lines) {
 		ControllerUserInterface.printLine(line);
 	    }
