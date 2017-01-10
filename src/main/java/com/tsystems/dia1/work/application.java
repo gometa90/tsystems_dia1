@@ -14,8 +14,11 @@ import au.com.bytecode.opencsv.CSVReader;
 
 public class Application {
 
-    // listar por filtros de nombre
-    // obtener por id
+    // ¿Qué queremos hacer en nuestra interaz gráfica?
+    // 1. obtenrer city por id
+    // 2. obtener city por nombre empieza por
+    // 3.obtener country por código
+    // 4.etc
 
     private static CSVReader reader;
 
