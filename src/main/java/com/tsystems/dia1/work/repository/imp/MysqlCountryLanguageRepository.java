@@ -25,10 +25,11 @@ public class MysqlCountryLanguageRepository implements CountryLanguageRepository
 
 	    ResultSet resultSet = preparedStatement.executeQuery();
 	    if (resultSet.next()) {
+
 		CountryLanguageEntity countryLanguage = CountryLanguageEntity.builder()//
 			.countryCode(resultSet.getString("CountryCode"))//
 			.language(resultSet.getString("Language"))//
-			// .isOfficial()//
+			.isOfficial(toBoolean(resultSet.getString("IsOfficial")))//
 			.percentage(resultSet.getDouble("Percentage"))//
 			.build();
 
@@ -39,6 +40,14 @@ public class MysqlCountryLanguageRepository implements CountryLanguageRepository
 
 	    throw new RepositoryConnectionException("Error al conectar al servidor", e);
 	}
+    }
+
+    private boolean toBoolean(String isOfficialString) {
+	boolean isOfficial = true;
+	if (isOfficialString.equals("F")) {
+	    isOfficial = false;
+	}
+	return isOfficial;
     }
 
 }

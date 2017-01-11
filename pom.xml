@@ -4,13 +4,21 @@
 	<groupId>com.tsystems.dia1</groupId>
 	<artifactId>work_csv</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>net.sf.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
 			<version>2.3</version>
 		</dependency>
+
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>6.0.5</version>
+		</dependency>
+
 
 	</dependencies>
 

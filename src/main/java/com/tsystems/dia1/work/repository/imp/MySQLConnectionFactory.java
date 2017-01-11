@@ -8,7 +8,7 @@ import com.tsystems.dia1.work.services.RepositoryConnectionException;
 
 public class MySQLConnectionFactory {
 
-    private static final String ULR = "jdbc:mysql://192.168.1.30:3306/world?serverTimezone=UTC";
+    private static final String ULR = "jdbc:mysql://192.168.1.30:3306/world?serverTimezone=UTC&useSSL=false";
     private static final String USUARIO = "curso";
     private static final String CLAVE = "curso";
 
@@ -25,7 +25,7 @@ public class MySQLConnectionFactory {
 
     public static Connection connect() throws RepositoryConnectionException {
 	try {
-	    Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
+	    Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 
 	} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e1) {
 	    throw new RepositoryConnectionException("Error al cargar el drive", e1);

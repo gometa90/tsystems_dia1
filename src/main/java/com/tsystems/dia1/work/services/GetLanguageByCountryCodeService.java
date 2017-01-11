@@ -3,11 +3,12 @@ package com.tsystems.dia1.work.services;
 import java.util.Optional;
 
 import com.tsystems.dia1.work.domain.CountryLanguageEntity;
-import com.tsystems.dia1.work.repository.imp.CSVLanguageCountryRepository;
+import com.tsystems.dia1.work.repository.CountryLanguageRepository;
+import com.tsystems.dia1.work.repository.imp.MysqlCountryLanguageRepository;
 
 public class GetLanguageByCountryCodeService {
 
-    private final CSVLanguageCountryRepository languageRepository = new CSVLanguageCountryRepository();
+    private final CountryLanguageRepository languageRepository = new MysqlCountryLanguageRepository();
 
     public CountryLanguageEntity getLanguageByCountryCode(String countryCode) throws RepositoryConnectionException {
 
