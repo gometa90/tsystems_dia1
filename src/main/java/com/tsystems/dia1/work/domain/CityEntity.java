@@ -41,6 +41,12 @@ public class CityEntity {
 	return new CityEntityBuilder();
     }
 
+    @Override
+    public String toString() {
+	return "CityEntity [id=" + id + ", name=" + name + ", countrycode=" + countrycode + ", district=" + district
+		+ ", population=" + population + "]";
+    }
+
     public static class CityEntityBuilder {
 
 	private Long id;

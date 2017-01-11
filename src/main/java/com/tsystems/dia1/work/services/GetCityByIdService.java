@@ -17,7 +17,7 @@ public class GetCityByIdService {
 	if (optionalCity.isPresent()) {
 	    return optionalCity.get();
 	} else {
-	    throw new ElementNotFoundException("No existe ciduad con el id" + " " + cityId);
+	    throw new ElementNotFoundException("No existe ciudad con el id" + " " + cityId);
 	}
     }
 

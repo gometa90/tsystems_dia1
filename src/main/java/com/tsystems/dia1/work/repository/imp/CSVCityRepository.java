@@ -1,5 +1,6 @@
 package com.tsystems.dia1.work.repository.imp;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.tsystems.dia1.work.ResourceUtils;
 import com.tsystems.dia1.work.converter.CityMapper;
 import com.tsystems.dia1.work.domain.CityEntity;
 import com.tsystems.dia1.work.repository.CityRepository;
@@ -27,7 +29,8 @@ public class CSVCityRepository implements CityRepository {
 
 	CSVReader reader = null;
 	try {
-	    reader = new CSVReader(new FileReader(CITY_FILE_NAME), COLUMN_DELIMITER_CHAR);
+	    File fileCityName = ResourceUtils.getResourceByName(CITY_FILE_NAME);
+	    reader = new CSVReader(new FileReader(fileCityName), COLUMN_DELIMITER_CHAR);
 	    String[] nextLine;
 	    while ((nextLine = reader.readNext()) != null) {
 		if (nextLine[1].startsWith(startWith)) {
@@ -40,7 +43,9 @@ public class CSVCityRepository implements CityRepository {
 	    throw new RepositoryConnectionException("Error en entrada salida", ioException);
 	} finally {
 	    try {
-		reader.close();
+		if (reader != null) {
+		    reader.close();
+		}
 	    } catch (IOException ioException) {
 		throw new RepositoryConnectionException("Error en el cierre del reader", ioException);
 	    }
@@ -53,7 +58,8 @@ public class CSVCityRepository implements CityRepository {
 
 	CSVReader reader = null;
 	try {
-	    reader = new CSVReader(new FileReader(CITY_FILE_NAME), COLUMN_DELIMITER_CHAR);
+	    File fileCityName = ResourceUtils.getResourceByName(CITY_FILE_NAME);
+	    reader = new CSVReader(new FileReader(fileCityName), COLUMN_DELIMITER_CHAR);
 	    String[] nextLine;
 
 	    while ((nextLine = reader.readNext()) != null) {
@@ -67,7 +73,9 @@ public class CSVCityRepository implements CityRepository {
 	    throw new RepositoryConnectionException("Error en entrada salida", ioException);
 	} finally {
 	    try {
-		reader.close();
+		if (reader != null) {
+		    reader.close();
+		}
 	    } catch (IOException ioException) {
 		throw new RepositoryConnectionException("Error en el cierre del reader", ioException);
 	    }

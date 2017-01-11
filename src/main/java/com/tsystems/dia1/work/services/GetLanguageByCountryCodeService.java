@@ -9,11 +9,14 @@ public class GetLanguageByCountryCodeService {
 
     private final CSVLanguageCountryRepository languageRepository = new CSVLanguageCountryRepository();
 
-    public Optional<CountryLanguageEntity> getLanguageByCountryCode(String countryCode)
-	    throws RepositoryConnectionException {
+    public CountryLanguageEntity getLanguageByCountryCode(String countryCode) throws RepositoryConnectionException {
 
-	Optional<CountryLanguageEntity> countryLanguagesToReturn = languageRepository.findByCountryCode(countryCode);
+	Optional<CountryLanguageEntity> optionalCountryLanguages = languageRepository.findByCountryCode(countryCode);
 
-	return countryLanguagesToReturn;
+	if (optionalCountryLanguages.isPresent()) {
+	    return optionalCountryLanguages.get();
+	} else {
+	    throw new ElementNotFoundException("No existe lengua en un país con ese countrycode" + " " + countryCode);
+	}
     }
 }

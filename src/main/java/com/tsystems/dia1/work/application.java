@@ -1,91 +1,21 @@
 package com.tsystems.dia1.work;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
 
-import com.tsystems.dia1.work.repository.CSVDataRepository;
-import com.tsystems.dia1.work.repository.DataRepository;
-import com.tsystems.dia1.work.userinterface.ControllerUserInterface;
-
-import au.com.bytecode.opencsv.CSVReader;
+import com.tsystems.dia1.work.services.ElementNotFoundException;
+import com.tsystems.dia1.work.services.RepositoryConnectionException;
 
 public class Application {
 
-    // ¿Qué queremos hacer en nuestra interaz gráfica?
-    // 1. obtenrer city por id
-    // 2. obtener city por nombre empieza por
-    // 3.obtener country por código
-    // 4.etc
+    public static void main(final String args[]) throws IOException, RepositoryConnectionException {
 
-    private static CSVReader reader;
-
-    public static void main(final String args[]) throws IOException {
-
-	DataRepository dataRepository = new CSVDataRepository();
-
-	File cityfile = null;
-	if (args.length < 1) {
-	    throw new IllegalArgumentException("Al menos debe introducir un argumento");
-	}
-
-	switch (args[0]) {
-
-	case "ciudad":
-	    cityfile = ResourceUtils.getResourceByName("city.csv");
-	    break;
-
-	case "pais":
-	    cityfile = ResourceUtils.getResourceByName("country.csv");
-	    break;
-
-	case "lengua":
-	    cityfile = ResourceUtils.getResourceByName("countrylanguage.csv");
-	    break;
-
-	default:
-	    throw new IllegalArgumentException("Argumento 1 invalido");
-	}
-
-	switch (args[1]) {
-	case "id":
-	    Optional<String[]> optionalLine = dataRepository.findById(cityfile, args[2]);
-	    // Programación en lambda, que es solo codificación comprimida
-	    // line.ifPresent(value ->
-	    // ControllerUserInterface.printLine(value));
-	    if (optionalLine.isPresent()) {
-		ControllerUserInterface.printLine(optionalLine.get());
-	    }
-
-	    break;
-
-	case "name":
-	    List<String[]> lines = dataRepository.findByNameStartWith(cityfile, args[2]);
-	    for (String[] line : lines) {
-		ControllerUserInterface.printLine(line);
-	    }
-	    break;
-
-	default:
-	    throw new IllegalArgumentException("Argumento 2 invalido");
-	}
-
+	CommandSwitcher commandSwitcher = new CommandSwitcher();
 	try {
-	    reader = new CSVReader(new FileReader(cityfile), ';');
-	    String[] nextLine;
-
-	    while ((nextLine = reader.readNext()) != null) {
-		// nextLine[] is an array of values from the line
-		System.out.println(nextLine[0] + " " + nextLine[1] + " etc...");
-	    }
-
-	} catch (Exception e) {
-	    // TODO Auto-generated catch block
+	    commandSwitcher.executeCommand(args);
+	} catch (RepositoryConnectionException e) {
 	    e.printStackTrace();
+	} catch (ElementNotFoundException e) {
+	    System.out.println("No existe ningún elemento con ese identificador ");
 	}
-
     }
-
 }

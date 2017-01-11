@@ -1,4 +1,5 @@
 package com.tsystems.dia1.work;
+
 import java.io.File;
 
 public class ResourceUtils {
@@ -7,7 +8,7 @@ public class ResourceUtils {
 
 	final ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
 
-	return new File(systemClassLoader.getResource("countrylanguage.csv").getFile());
+	return new File(systemClassLoader.getResource(fileName).getFile());
 
     }
 }

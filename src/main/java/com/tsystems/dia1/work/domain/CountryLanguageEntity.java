@@ -5,9 +5,9 @@ public class CountryLanguageEntity {
     private final String countryCode;
     private final String language;
     private final boolean isOfficial;
-    private final Long percentage;
+    private final double percentage;
 
-    public CountryLanguageEntity(String countryCode, String language, boolean isOfficial, Long percentage) {
+    public CountryLanguageEntity(String countryCode, String language, boolean isOfficial, double percentage) {
 	super();
 	this.countryCode = countryCode;
 	this.language = language;
@@ -27,7 +27,7 @@ public class CountryLanguageEntity {
 	return isOfficial;
     }
 
-    public Long getPercentage() {
+    public double getPercentage() {
 	return percentage;
     }
 
@@ -35,11 +35,17 @@ public class CountryLanguageEntity {
 	return new CountryLanguageEntityBuilder();
     }
 
+    @Override
+    public String toString() {
+	return "CountryLanguageEntity [countryCode=" + countryCode + ", language=" + language + ", isOfficial="
+		+ isOfficial + ", percentage=" + percentage + "]";
+    }
+
     public static class CountryLanguageEntityBuilder {
 	private String countryCode;
 	private String language;
 	private boolean isOfficial;
-	private Long percentage;
+	private double percentage;
 
 	public CountryLanguageEntityBuilder countryCode(String countryCode) {
 	    this.countryCode = countryCode;
@@ -56,7 +62,7 @@ public class CountryLanguageEntity {
 	    return this;
 	}
 
-	public CountryLanguageEntityBuilder percentage(Long percentage) {
+	public CountryLanguageEntityBuilder percentage(double percentage) {
 	    this.percentage = percentage;
 	    return this;
 	}
