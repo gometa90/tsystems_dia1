@@ -1,4 +1,4 @@
-package com.tsystems.dia1.work.dominio;
+package com.tsystems.dia1.work.domain;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -9,7 +9,7 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 import com.tsystems.dia1.work.configuration.HibernateUtil;
-import com.tsystems.dia1.work.dominio.CountryEntity;
+import com.tsystems.dia1.work.domain.CountryEntity;
 import com.tsystems.dia1.work.repository.CountryRepository;
 import com.tsystems.dia1.work.services.RepositoryConnectionException;
 

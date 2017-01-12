@@ -1,6 +1,6 @@
 package com.tsystems.dia1.work.converter;
 
-import com.tsystems.dia1.work.dominio.CityEntity;
+import com.tsystems.dia1.work.domain.CityEntity;
 
 public class CityMapper {
 

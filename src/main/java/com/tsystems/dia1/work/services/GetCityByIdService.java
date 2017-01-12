@@ -2,7 +2,7 @@ package com.tsystems.dia1.work.services;
 
 import java.util.Optional;
 
-import com.tsystems.dia1.work.dominio.CityEntity;
+import com.tsystems.dia1.work.domain.CityEntity;
 import com.tsystems.dia1.work.repository.CityRepository;
 import com.tsystems.dia1.work.repository.imp.CSVCityRepository;
 

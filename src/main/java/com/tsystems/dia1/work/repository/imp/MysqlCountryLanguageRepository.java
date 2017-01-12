@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 
-import com.tsystems.dia1.work.dominio.CountryLanguageEntity;
+import com.tsystems.dia1.work.domain.CountryLanguageEntity;
 import com.tsystems.dia1.work.repository.CountryLanguageRepository;
 import com.tsystems.dia1.work.services.RepositoryConnectionException;
 

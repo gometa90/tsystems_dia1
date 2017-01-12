@@ -1,7 +1,7 @@
 package com.tsystems.dia1.work;
 
-import com.tsystems.dia1.work.dominio.CountryEntity;
-import com.tsystems.dia1.work.dominio.HibernateCityEntity;
+import com.tsystems.dia1.work.domain.CountryEntity;
+import com.tsystems.dia1.work.domain.HibernateCityEntity;
 import com.tsystems.dia1.work.services.GetCountryByCodeService;
 import com.tsystems.dia1.work.services.RepositoryConnectionException;
 

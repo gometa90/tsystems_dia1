@@ -1,4 +1,4 @@
-package com.tsystems.dia1.work.dominio;
+package com.tsystems.dia1.work.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

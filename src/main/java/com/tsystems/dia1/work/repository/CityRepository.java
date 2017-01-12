@@ -3,7 +3,7 @@ package com.tsystems.dia1.work.repository;
 import java.util.List;
 import java.util.Optional;
 
-import com.tsystems.dia1.work.dominio.CityEntity;
+import com.tsystems.dia1.work.domain.CityEntity;
 import com.tsystems.dia1.work.services.RepositoryConnectionException;
 
 public interface CityRepository {

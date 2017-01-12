@@ -2,9 +2,9 @@ package com.tsystems.dia1.work;
 
 import java.util.List;
 
-import com.tsystems.dia1.work.dominio.CityEntity;
-import com.tsystems.dia1.work.dominio.CountryEntity;
-import com.tsystems.dia1.work.dominio.CountryLanguageEntity;
+import com.tsystems.dia1.work.domain.CityEntity;
+import com.tsystems.dia1.work.domain.CountryEntity;
+import com.tsystems.dia1.work.domain.CountryLanguageEntity;
 import com.tsystems.dia1.work.services.GetCityByIdService;
 import com.tsystems.dia1.work.services.GetCityNameStartWithService;
 import com.tsystems.dia1.work.services.GetCountryByCodeService;

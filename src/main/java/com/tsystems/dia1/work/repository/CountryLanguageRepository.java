@@ -2,7 +2,7 @@ package com.tsystems.dia1.work.repository;
 
 import java.util.Optional;
 
-import com.tsystems.dia1.work.dominio.CountryLanguageEntity;
+import com.tsystems.dia1.work.domain.CountryLanguageEntity;
 import com.tsystems.dia1.work.services.RepositoryConnectionException;
 
 public interface CountryLanguageRepository {

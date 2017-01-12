@@ -11,8 +11,8 @@ public class HibernateUtil {
     static {
 	try {
 	    sessionFactory = new Configuration()//
-		    .addAnnotatedClass(com.tsystems.dia1.work.dominio.CountryEntity.class)//
-		    .addAnnotatedClass(com.tsystems.dia1.work.dominio.HibernateCityEntity.class)//
+		    .addAnnotatedClass(com.tsystems.dia1.work.domain.CountryEntity.class)//
+		    .addAnnotatedClass(com.tsystems.dia1.work.domain.HibernateCityEntity.class)//
 		    .buildSessionFactory();
 	} catch (Throwable ex) {
 	    throw new ExceptionInInitializerError(ex);
