@@ -5,9 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.tsystems.dia1.work.converter.CountryMapper;
-import com.tsystems.dia1.work.domain.CountryEntity;
+import com.tsystems.dia1.work.dominio.CountryEntity;
 import com.tsystems.dia1.work.repository.CountryRepository;
 import com.tsystems.dia1.work.services.RepositoryConnectionException;
 
@@ -51,7 +52,7 @@ public class CSVCountryRepository implements CountryRepository {
     }
 
     @Override
-    public CountryEntity findByCode(String code) throws RepositoryConnectionException {
+    public Optional<CountryEntity> findByCode(String code) throws RepositoryConnectionException {
 	// TODO Auto-generated method stub
 	return null;
     }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 import com.tsystems.dia1.work.ResourceUtils;
 import com.tsystems.dia1.work.converter.CityMapper;
-import com.tsystems.dia1.work.domain.CityEntity;
+import com.tsystems.dia1.work.dominio.CityEntity;
 import com.tsystems.dia1.work.repository.CityRepository;
 import com.tsystems.dia1.work.services.RepositoryConnectionException;
 

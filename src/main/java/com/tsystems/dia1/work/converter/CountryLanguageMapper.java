@@ -1,6 +1,6 @@
 package com.tsystems.dia1.work.converter;
 
-import com.tsystems.dia1.work.domain.CountryLanguageEntity;
+import com.tsystems.dia1.work.dominio.CountryLanguageEntity;
 
 public class CountryLanguageMapper {
 

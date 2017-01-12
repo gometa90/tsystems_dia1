@@ -1,4 +1,4 @@
-package com.tsystems.dia1.work.domain;
+package com.tsystems.dia1.work.dominio;
 
 public class CountryLanguageEntity {
 

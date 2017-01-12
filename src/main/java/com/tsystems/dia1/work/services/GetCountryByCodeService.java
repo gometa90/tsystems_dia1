@@ -1,17 +1,19 @@
 package com.tsystems.dia1.work.services;
 
-import com.tsystems.dia1.work.domain.CountryEntity;
+import java.util.Optional;
+
+import com.tsystems.dia1.work.dominio.CountryEntity;
 import com.tsystems.dia1.work.repository.CountryRepository;
+import com.tsystems.dia1.work.repository.imp.HibernateCountryRepository;
 
 public class GetCountryByCodeService {
 
-    private final CountryRepository countryRepository = null;// Construir
-    // después
+    private final CountryRepository countryRepository = new HibernateCountryRepository();
 
     public CountryEntity getCountryByCode(String countryCode) throws RepositoryConnectionException {
 
-	CountryEntity countryToReturn = countryRepository.findByCode(countryCode);
+	Optional<CountryEntity> countryToReturn = countryRepository.findByCode(countryCode);
 
-	return countryToReturn;
+	return countryToReturn.get();
     }
 }

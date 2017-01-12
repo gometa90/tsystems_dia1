@@ -1,8 +1,8 @@
 package com.tsystems.dia1.work.userinterface;
 
-import com.tsystems.dia1.work.domain.CityEntity;
-import com.tsystems.dia1.work.domain.CountryEntity;
-import com.tsystems.dia1.work.domain.CountryLanguageEntity;
+import com.tsystems.dia1.work.dominio.CityEntity;
+import com.tsystems.dia1.work.dominio.CountryEntity;
+import com.tsystems.dia1.work.dominio.CountryLanguageEntity;
 
 public class ControllerUserInterface {
 

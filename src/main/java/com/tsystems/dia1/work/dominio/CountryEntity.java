@@ -1,8 +1,13 @@
 package com.tsystems.dia1.work.dominio;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -10,36 +15,39 @@ import javax.persistence.Table;
 public class CountryEntity {
 
     @Id
-    @Column(name = "Code")
+    @Column(name = "Code", columnDefinition = "CHAR", length = 3)
     private String countryCode;
-    @Column(name = "Name")
+    @Column(name = "Name", columnDefinition = "CHAR", length = 52)
     private String countryName;
-    @Column(name = "Continent")
+    @Column(name = "Continent", columnDefinition = "ENUM")
     private String countryContinent;
-    @Column(name = "Region")
+    @Column(name = "Region", columnDefinition = "CHAR", length = 26)
     private String countryRegion;
     @Column(name = "SurfaceArea")
-    private Long countrySurfaceArea;
-    @Column(name = "IndepYear")
+    private Float countrySurfaceArea;
+    @Column(name = "IndepYear", columnDefinition = "SMALLINT")
     private String countryIndepYear;
-    @Column(name = "Population")
-    private Long countryPopulation;
+    @Column(name = "Population", columnDefinition = "INT")
+    private Float countryPopulation;
     @Column(name = "LifeExpectancy")
-    private Long countryLifeExpectancy;
+    private Float countryLifeExpectancy;
     @Column(name = "GNP")
-    private Long countryGnp;
+    private Float countryGnp;
     @Column(name = "GNPOld")
-    private Long countryGnpOld;
-    @Column(name = "LocalName")
+    private Float countryGnpOld;
+    @Column(name = "LocalName", columnDefinition = "CHAR", length = 45)
     private String countryLocalName;
-    @Column(name = "GovernmentForm")
+    @Column(name = "GovernmentForm", columnDefinition = "CHAR", length = 45)
     private String countryGovernmentForm;
-    @Column(name = "HeadOfState")
+    @Column(name = "HeadOfState", columnDefinition = "CHAR", length = 60)
     private String countryHeadOfState;
-    @Column(name = "Capital")
-    private Long countryCapital;
-    @Column(name = "Code2")
+    @Column(name = "Capital", columnDefinition = "INT")
+    private Float countryCapital;
+    @Column(name = "Code2", columnDefinition = "CHAR", length = 2)
     private String countryCode2;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "cityCountryCode")
+    private List<HibernateCityEntity> cities = new ArrayList<>();
 
     public String getCountryCode() {
 	return countryCode;
@@ -73,11 +81,11 @@ public class CountryEntity {
 	this.countryRegion = countryRegion;
     }
 
-    public Long getCountrySurfaceArea() {
+    public Float getCountrySurfaceArea() {
 	return countrySurfaceArea;
     }
 
-    public void setCountrySurfaceArea(Long countrySurfaceArea) {
+    public void setCountrySurfaceArea(Float countrySurfaceArea) {
 	this.countrySurfaceArea = countrySurfaceArea;
     }
 
@@ -89,35 +97,35 @@ public class CountryEntity {
 	this.countryIndepYear = countryIndepYear;
     }
 
-    public Long getCountryPopulation() {
+    public Float getCountryPopulation() {
 	return countryPopulation;
     }
 
-    public void setCountryPopulation(Long countryPopulation) {
+    public void setCountryPopulation(Float countryPopulation) {
 	this.countryPopulation = countryPopulation;
     }
 
-    public Long getCountryLifeExpectancy() {
+    public Float getCountryLifeExpectancy() {
 	return countryLifeExpectancy;
     }
 
-    public void setCountryLifeExpectancy(Long countryLifeExpectancy) {
+    public void setCountryLifeExpectancy(Float countryLifeExpectancy) {
 	this.countryLifeExpectancy = countryLifeExpectancy;
     }
 
-    public Long getCountryGnp() {
+    public Float getCountryGnp() {
 	return countryGnp;
     }
 
-    public void setCountryGnp(Long countryGnp) {
+    public void setCountryGnp(Float countryGnp) {
 	this.countryGnp = countryGnp;
     }
 
-    public Long getCountryGnpOld() {
+    public Float getCountryGnpOld() {
 	return countryGnpOld;
     }
 
-    public void setCountryGnpOld(Long countryGnpOld) {
+    public void setCountryGnpOld(Float countryGnpOld) {
 	this.countryGnpOld = countryGnpOld;
     }
 
@@ -145,11 +153,11 @@ public class CountryEntity {
 	this.countryHeadOfState = countryHeadOfState;
     }
 
-    public Long getCountryCapital() {
+    public Float getCountryCapital() {
 	return countryCapital;
     }
 
-    public void setCountryCapital(Long countryCapital) {
+    public void setCountryCapital(Float countryCapital) {
 	this.countryCapital = countryCapital;
     }
 
@@ -159,6 +167,25 @@ public class CountryEntity {
 
     public void setCountryCode2(String countryCode2) {
 	this.countryCode2 = countryCode2;
+    }
+
+    public List<HibernateCityEntity> getCities() {
+	return cities;
+    }
+
+    public void setCities(List<HibernateCityEntity> cities) {
+	this.cities = cities;
+    }
+
+    @Override
+    public String toString() {
+	return "CountryEntity [countryCode=" + countryCode + ", countryName=" + countryName + ", countryContinent="
+		+ countryContinent + ", countryRegion=" + countryRegion + ", countrySurfaceArea=" + countrySurfaceArea
+		+ ", countryIndepYear=" + countryIndepYear + ", countryPopulation=" + countryPopulation
+		+ ", countryLifeExpectancy=" + countryLifeExpectancy + ", countryGnp=" + countryGnp + ", countryGnpOld="
+		+ countryGnpOld + ", countryLocalName=" + countryLocalName + ", countryGovernmentForm="
+		+ countryGovernmentForm + ", countryHeadOfState=" + countryHeadOfState + ", countryCapital="
+		+ countryCapital + ", countryCode2=" + countryCode2 + "]";
     }
 
 }

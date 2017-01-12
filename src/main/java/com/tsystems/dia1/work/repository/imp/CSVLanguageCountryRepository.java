@@ -8,7 +8,7 @@ import java.util.Optional;
 
 import com.tsystems.dia1.work.ResourceUtils;
 import com.tsystems.dia1.work.converter.CountryLanguageMapper;
-import com.tsystems.dia1.work.domain.CountryLanguageEntity;
+import com.tsystems.dia1.work.dominio.CountryLanguageEntity;
 import com.tsystems.dia1.work.repository.CountryLanguageRepository;
 import com.tsystems.dia1.work.services.RepositoryConnectionException;
 

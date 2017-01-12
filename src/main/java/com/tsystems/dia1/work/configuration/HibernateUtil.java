@@ -10,7 +10,10 @@ public class HibernateUtil {
     private static final SessionFactory sessionFactory;
     static {
 	try {
-	    sessionFactory = new Configuration().configure().buildSessionFactory();
+	    sessionFactory = new Configuration()//
+		    .addAnnotatedClass(com.tsystems.dia1.work.dominio.CountryEntity.class)//
+		    .addAnnotatedClass(com.tsystems.dia1.work.dominio.HibernateCityEntity.class)//
+		    .buildSessionFactory();
 	} catch (Throwable ex) {
 	    throw new ExceptionInInitializerError(ex);
 	}
